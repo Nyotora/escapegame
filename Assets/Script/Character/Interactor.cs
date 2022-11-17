@@ -12,6 +12,7 @@ public class Interactor : MonoBehaviour
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numFound;
+    [SerializeField] private Player player;
 
 
     private void Update()
@@ -24,7 +25,7 @@ public class Interactor : MonoBehaviour
             var interactable = _colliders[0].GetComponent<IInteractable>();
             if (interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
             {
-                interactable.Interact(this);
+                interactable.Interact(player);
             }
         }
     }

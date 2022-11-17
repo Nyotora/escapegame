@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scr_door : MonoBehaviour, IInteractable
+public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
@@ -12,6 +12,11 @@ public class scr_door : MonoBehaviour, IInteractable
 
     [Header("Animation")]
     public GameObject gameObj;
+
+    public Door(bool isOpen)
+    {
+        this.isOpen = isOpen;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +32,7 @@ public class scr_door : MonoBehaviour, IInteractable
         
     }
 
-    public void Interact(Interactor interactor)
+    public void Interact(Player player)
     {
 
         if (isOpen)
@@ -43,5 +48,10 @@ public class scr_door : MonoBehaviour, IInteractable
             this.isOpen = true;
         }
 
+    }
+
+    public bool IsOpen()
+    {
+        return this.isOpen;
     }
 }
