@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static scr_Model;
+using static PlayerSettings;
 
 public class scr_CharacterController : MonoBehaviour
 {
@@ -36,6 +36,9 @@ public class scr_CharacterController : MonoBehaviour
         newCaracterRotation = transform.localRotation.eulerAngles;
 
         characterController = GetComponent<CharacterController>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void Update()
@@ -46,10 +49,10 @@ public class scr_CharacterController : MonoBehaviour
 
     private void CalculateView()
     {
-
+        
         newCaracterRotation.y += playerSettings.ViewXSensitivity * input_view.x * Time.deltaTime;
         transform.rotation = Quaternion.Euler(newCaracterRotation);
-
+        
         newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_view.y : -input_view.y) * Time.deltaTime;
         newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampYMin, viewClampYMax);
 

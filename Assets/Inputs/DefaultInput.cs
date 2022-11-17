@@ -39,7 +39,7 @@ public partial class @DefaultInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""View"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""efb1bd57-852f-4253-9f65-8548fea19351"",
+                    ""id"": ""7e4b90d3-ca8a-495a-b2cb-0a143e2b0587"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -47,17 +47,6 @@ public partial class @DefaultInput : IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""b9c4e234-1a69-43be-8a13-b02206f021a4"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""View"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""ZQSD"",
                     ""id"": ""cf212f24-585f-47c4-b6cc-c6da58ccd0ae"",
@@ -123,6 +112,17 @@ public partial class @DefaultInput : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abafd8c9-a3af-429b-bba8-1b9cccbb999f"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""View"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
