@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class scr_Model
+public static class PlayerSettings
 {
     #region - Player -
 
