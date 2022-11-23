@@ -2196,6 +2196,7 @@ GameObject:
   - component: {fileID: 522567093}
   - component: {fileID: 522567095}
   - component: {fileID: 522567094}
+  - component: {fileID: 522567096}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -2261,6 +2262,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522567092}
   m_CullTransparentMesh: 1
+--- !u!114 &522567096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522567092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a4a78be812e43438ca4c4c4f0399e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 697773800}
+  lines:
+  - Coucou a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+  textSpeed: 0.05
+  index: 0
 --- !u!1 &527258405
 GameObject:
   m_ObjectHideFlags: 0
