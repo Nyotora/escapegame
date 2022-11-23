@@ -2277,7 +2277,8 @@ MonoBehaviour:
   textComponent: {fileID: 697773800}
   lines:
   - Coucou a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
-  textSpeed: 0.05
+  - Test 1
+  textSpeed: 0.03
   index: 0
 --- !u!1 &527258405
 GameObject:
@@ -3376,7 +3377,7 @@ GameObject:
   - component: {fileID: 779198148}
   - component: {fileID: 779198147}
   - component: {fileID: 779198151}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3475,6 +3476,7 @@ MonoBehaviour:
   _prompt: 
   textLines:
   - Je suis le prof de SQL.
+  - "J'ai une qu\xEAte pour toi."
   dialogueBox: {fileID: 522567096}
 --- !u!1001 &785866552
 PrefabInstance:

@@ -35,7 +35,7 @@ public class Door : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void Hover()
     {
