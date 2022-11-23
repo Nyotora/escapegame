@@ -12,6 +12,9 @@ public class Door : MonoBehaviour, IInteractable
 
     [Header("Animation")]
     public GameObject gameObj;
+    public GameObject meshObj;
+
+    private Color startcolor;
 
     public Door(bool isOpen)
     {
@@ -24,12 +27,24 @@ public class Door : MonoBehaviour, IInteractable
         isOpen = false;
         anim = gameObj.GetComponent<Animation>();
         //anim.Play("doorOpen");
+
+        startcolor = meshObj.GetComponent<Renderer>().material.color;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void Hover()
+    {
+        meshObj.GetComponent<Renderer>().material.color = Color.grey;
+    }
+
+    public void Unhover()
+    {
+        meshObj.GetComponent<Renderer>().material.color = startcolor; 
     }
 
     public void Interact(Player player)
@@ -38,20 +53,31 @@ public class Door : MonoBehaviour, IInteractable
         if (isOpen)
         {
             Debug.Log("close");
-            anim.Play("doorClose");
             this.isOpen = false;
         }
         else
         {
             Debug.Log("Open");
-            anim.Play("doorOpen");
             this.isOpen = true;
         }
 
+    }
+
+    public void VisualInteraction(Player player)
+    {
+        if (isOpen)
+        {
+            anim.Play("doorOpen");
+        }
+        else
+        {
+            anim.Play("doorClose"); 
+        }
     }
 
     public bool IsOpen()
     {
         return this.isOpen;
     }
+
 }

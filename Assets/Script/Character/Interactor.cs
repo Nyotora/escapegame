@@ -14,6 +14,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numFound;
     [SerializeField] private Player player;
 
+    private IInteractable interactable;
 
     private void Update()
     {
@@ -22,10 +23,27 @@ public class Interactor : MonoBehaviour
 
         if (_numFound > 0)
         {
-            var interactable = _colliders[0].GetComponent<IInteractable>();
+            interactable = _colliders[0].GetComponent<IInteractable>();
+            interactable.Hover();
             if (interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
             {
                 interactable.Interact(player);
+                interactable.VisualInteraction(player);
+                //Debug.Log(player.GetInventory().Count);
+            }
+        } else
+        {
+            if (interactable != null)
+            {
+                try
+                {
+                    interactable.Unhover();
+                }
+                catch (MissingReferenceException)
+                {
+                    Debug.Log("objet détruit donc peut pas acceder");
+                }
+                interactable = null;
             }
         }
     }
