@@ -70,4 +70,14 @@ public class scr_CharacterController : MonoBehaviour
 
         characterController.Move(newMovementSpeed);
     }
+
+    public void enableInput()
+    {
+        defaultInput.Enable();
+    }
+
+    public void disableInput()
+    {
+        defaultInput.Disable();
+    }
 }

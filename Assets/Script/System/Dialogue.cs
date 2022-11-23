@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
 
     public int index;
+    public scr_CharacterController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        playerController.disableInput();
         gameObject.SetActive(true);
         index = 0;
         StartCoroutine(TypeLine());
@@ -64,6 +66,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            playerController.enableInput();
         }
     }
 
