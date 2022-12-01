@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 public class PlayerTest
 {
-    /*
+    
     // A Test behaves as an ordinary method
     [Test]
     public void Open_door_when_interact_once_with_closed_door()
@@ -18,7 +18,7 @@ public class PlayerTest
 
         Assert.IsTrue(door.IsOpen());
 
-    }*/
+    }
 
     // A Test behaves as an ordinary method
     [Test]
