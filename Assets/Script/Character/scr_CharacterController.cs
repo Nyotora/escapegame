@@ -64,7 +64,7 @@ public class scr_CharacterController : MonoBehaviour
         var verticalSpeed = playerSettings.WalkingForwardSpeed * input_movement.y * Time.deltaTime;
         var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_movement.x * Time.deltaTime;
 
-        var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
+        var newMovementSpeed = new Vector3(horizontalSpeed, -5, verticalSpeed);
 
         newMovementSpeed = transform.TransformDirection(newMovementSpeed);
 
