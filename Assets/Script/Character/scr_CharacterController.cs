@@ -64,7 +64,7 @@ public class scr_CharacterController : MonoBehaviour
         var verticalSpeed = playerSettings.WalkingForwardSpeed * input_movement.y * Time.deltaTime;
         var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_movement.x * Time.deltaTime;
 
-        var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
+        var newMovementSpeed = new Vector3(horizontalSpeed, -5, verticalSpeed);
 
         newMovementSpeed = transform.TransformDirection(newMovementSpeed);
 
@@ -79,5 +79,7 @@ public class scr_CharacterController : MonoBehaviour
     public void disableInput()
     {
         defaultInput.Disable();
+        input_movement = new Vector2(0, 0);
+        input_view = new Vector2(0, 0);
     }
 }
