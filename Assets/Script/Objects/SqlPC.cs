@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public GameObject inputsFields;
     public Text[] textInputs;
+    public Text[] syntaxTextInputs;
 
     public GameObject showTableBtn;
     public GameObject studentTableCanvas;
@@ -57,10 +59,13 @@ public class SqlPC : MonoBehaviour, IInteractable
         //GameObject[] inputs = inputsFields.GetComponentInChildren<GameObject>();
         foreach (Text input in textInputs)
         {
-            //Debug.Log(input.GetComponent<Text>().text);
-            //Debug.Log(input.text);
-
-            query += input.text + " ";
+            if (syntaxTextInputs.Contains(input))
+            {
+                query += input.text.ToUpper() + " ";
+            } else
+            {
+                query += input.text + " ";
+            }
         }
         Debug.Log(query);
     }
