@@ -11,6 +11,11 @@ public class SqlPC : MonoBehaviour, IInteractable
     public GameObject inputsFields;
     public Text[] textInputs;
 
+    public GameObject showTableBtn;
+    public GameObject studentTableCanvas;
+
+    public StudentTable studentTable;
+
     public scr_CharacterController playerController;
 
     public void Hover()
@@ -28,8 +33,22 @@ public class SqlPC : MonoBehaviour, IInteractable
     public void VisualInteraction(Player player)
     {
         inputsFields.SetActive(true);
+
+        if (player.GetInventory().Contains(studentTable))
+        {
+            showTableBtn.SetActive(true);
+        }
+
         playerController.disableInput();
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void hideSQLquery()
+    {
+        inputsFields.SetActive(false);
+
+        playerController.enableInput();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Execute()
@@ -44,6 +63,16 @@ public class SqlPC : MonoBehaviour, IInteractable
             query += input.text + " ";
         }
         Debug.Log(query);
+    }
+
+    public void ShowStudentTable()
+    {
+        this.studentTableCanvas.SetActive(true);
+    }
+
+    public void HideStudentTable()
+    {
+        this.studentTableCanvas.SetActive(false);
     }
 
     // Start is called before the first frame update
