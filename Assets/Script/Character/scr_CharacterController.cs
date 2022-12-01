@@ -79,5 +79,7 @@ public class scr_CharacterController : MonoBehaviour
     public void disableInput()
     {
         defaultInput.Disable();
+        input_movement = new Vector2(0, 0);
+        input_view = new Vector2(0, 0);
     }
 }
