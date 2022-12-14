@@ -15,6 +15,8 @@ public class scr_CharacterController : MonoBehaviour
     private Vector3 newCameraRotation;
     private Vector3 newCaracterRotation;
 
+    private bool canCalculate;
+
     [Header("References")]
     public Transform cameraHolder;
 
@@ -25,6 +27,8 @@ public class scr_CharacterController : MonoBehaviour
 
     private void Awake()
     {
+        canCalculate = true;
+
         defaultInput = new DefaultInput();
 
         defaultInput.Character.Movement.performed += e => input_movement = e.ReadValue<Vector2>();
@@ -43,7 +47,10 @@ public class scr_CharacterController : MonoBehaviour
 
     private void Update()
     {
-        CalculateView();
+        if (canCalculate)
+        {
+            CalculateView();
+        }
         CalculateMovement();
     }
 
@@ -81,5 +88,15 @@ public class scr_CharacterController : MonoBehaviour
         defaultInput.Disable();
         input_movement = new Vector2(0, 0);
         input_view = new Vector2(0, 0);
+    }
+
+    public void disableCalculating()
+    {
+        canCalculate = false;
+    }
+
+    public void enableCalculating()
+    {
+        canCalculate = true;
     }
 }

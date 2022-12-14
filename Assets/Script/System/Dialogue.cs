@@ -13,6 +13,14 @@ public class Dialogue : MonoBehaviour
     public int index;
     public scr_CharacterController playerController;
 
+    private FirstCinematic cinematic;
+
+
+    public void setCinematic(FirstCinematic cinematic)
+    {
+        this.cinematic = cinematic;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,8 +73,20 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
-            playerController.enableInput();
+
+            if (!cinematic.IsRunning())
+            {
+                gameObject.SetActive(false);
+                playerController.enableInput();
+                playerController.enableCalculating();
+            }
+            else
+            {
+                StopAllCoroutines();
+                textComponent.text = string.Empty;
+                cinematic.Next();
+                gameObject.SetActive(false);
+            }
         }
     }
 
