@@ -53,7 +53,7 @@ public class FirstCinematic : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, i);
             yield return null;
         }
-
+        blackScreen.gameObject.SetActive(false);
         StopAllCoroutines();
         StartCoroutine(MoveCameraAround());
     }
