@@ -30,7 +30,7 @@ public class HUD : MonoBehaviour
         }
     }
 
-    private void ChangeCompetencePanel()
+    public void ChangeCompetencePanel()
     {
         if (isOpen)
         {
