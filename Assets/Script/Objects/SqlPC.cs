@@ -32,6 +32,13 @@ public class SqlPC : MonoBehaviour, IInteractable
     private string[] validColumn = new string[] {"id_etudiant","nom","prenom","moyenne"};
     private string[] validOperations = new string[] { "=", "!=" };
 
+    private bool success = false;
+
+    public bool IsQueryValid()
+    {
+        return success;
+    }
+
     public void Hover()
     {
     }
@@ -185,7 +192,9 @@ public class SqlPC : MonoBehaviour, IInteractable
             }
 
             ShowResult("14.08\n\nMessage de M. Nick :\nBravo, tu as réussi à trouver la moyenne cachée ! Viens donc me retrouver dans le couloir.");
+            success = true;
             
+
         }
     }
 
@@ -208,7 +217,6 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public void ShowAdvert(string adv)
     {
-        HideResult();
         HideError();
         advertText.text = adv;
         SQLadvertCanvas.SetActive(true);
@@ -224,7 +232,6 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public void ShowError(string err)
     {
-        HideResult();
         HideAdvert();
         errorText.text = err;
         SQLerrorCanvas.SetActive(true);
