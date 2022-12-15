@@ -25,6 +25,9 @@ public class SqlPC : MonoBehaviour, IInteractable
     public GameObject SQLresultCanvas;
     public Text resultText;
 
+    public GameObject help1Canvas;
+    public GameObject help2Canvas;
+
     public StudentTable studentTable;
 
     public scr_CharacterController playerController;
@@ -87,6 +90,24 @@ public class SqlPC : MonoBehaviour, IInteractable
 
         HideAdvert();
         HideError();
+    }
+
+    public void showHelp1()
+    {
+        help1Canvas.SetActive(true);
+        help2Canvas.SetActive(false);
+    }
+
+    public void showHelp2()
+    {
+        help2Canvas.SetActive(true);
+        help1Canvas.SetActive(false);
+    }
+
+    public void exitHelp()
+    {
+        help1Canvas.SetActive(false);
+        help2Canvas.SetActive(false);
     }
 
     public void Execute()

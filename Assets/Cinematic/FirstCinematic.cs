@@ -1,14 +1,16 @@
-using Codice.CM.Client.Differences;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class FirstCinematic : MonoBehaviour
 {
     public Image blackScreen;
     public Player player;
     public scr_CharacterController playerController;
+    //public GameObject camera;
+    public VideoPlayer video;
 
     public Dialogue dialogueBox;
 
@@ -35,7 +37,6 @@ public class FirstCinematic : MonoBehaviour
         playerController.disableInput();
         playerController.disableCalculating();
 
-        blackScreen.gameObject.SetActive(true);
         StartCoroutine(FadeImage());
     }
 
@@ -46,6 +47,10 @@ public class FirstCinematic : MonoBehaviour
 
     IEnumerator FadeImage()
     {
+        yield return new WaitForSeconds(28);
+        blackScreen.gameObject.SetActive(true);
+        video.gameObject.SetActive(false);
+
         // loop over 1 second backwards
         for (float i = 1; i >= 0; i -= Time.deltaTime)
         {
@@ -60,6 +65,10 @@ public class FirstCinematic : MonoBehaviour
 
     IEnumerator MoveCameraAround()
     {
+        //var videoPlayer = camera.AddComponent<VideoPlayer>();
+
+        //videoPlayer.Play();
+
         // loop over 1 second backwards
         for (float i = 2; i >= 1; i -= Time.deltaTime * 2)
         {
@@ -68,6 +77,7 @@ public class FirstCinematic : MonoBehaviour
             yield return null;
         }
         //yield return new WaitForSeconds(1);
+        dialogueBox.textComponent.text = string.Empty;
         dialogueBox.lines = new string[] { "...", "Où suis-je ?" };
         dialogueBox.StartDialogue();
         nextIndex++;
@@ -94,6 +104,7 @@ public class FirstCinematic : MonoBehaviour
 
     IEnumerator MoveCameraAround2()
     {
+        
         // loop over 1 second backwards
         for (float i = 1; i <= 3; i += Time.deltaTime * 8)
         {
@@ -126,7 +137,17 @@ public class FirstCinematic : MonoBehaviour
             yield return null;
         }
         isRunning = false;
-        dialogueBox.lines = new string[] { "Je vois que tu t'es endormi pendant mon cours...", "C'est pas bien ça." };
+        dialogueBox.lines = new string[] { "Je vois que tu t'es endormi durant mon cours...", 
+            "C'est pas très serieux ça.",
+            "...",
+            "Bon...",
+            "Les autres professeurs m'ont rapporté que tu as l'air de t'ennuyer durant leur cours.",
+            "Tu risques de rater ton année si ça continue comme ça.",
+            "Pour la peine tu vas aller réviser tes cours tout de suite.",
+            "Va dans le batiment informatique situé à ta droite.",
+            "Tu trouveras différents professeurs qui te confieront plusieurs missions."
+        };
+        yield return new WaitForSeconds(1);
         dialogueBox.StartDialogue();
     }
 }

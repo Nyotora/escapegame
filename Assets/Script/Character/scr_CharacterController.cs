@@ -51,6 +51,10 @@ public class scr_CharacterController : MonoBehaviour
         {
             CalculateView();
         }
+        else
+        {
+            CalculateXView();
+        }
         CalculateMovement();
     }
 
@@ -66,12 +70,20 @@ public class scr_CharacterController : MonoBehaviour
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
 
+    private void CalculateXView()
+    {
+        newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_view.y : -input_view.y) * Time.deltaTime;
+        newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampYMin, viewClampYMax);
+
+        cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
+    }
+
     private void CalculateMovement()
     {
         var verticalSpeed = playerSettings.WalkingForwardSpeed * input_movement.y * Time.deltaTime;
         var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_movement.x * Time.deltaTime;
 
-        var newMovementSpeed = new Vector3(horizontalSpeed, -5, verticalSpeed);
+        var newMovementSpeed = new Vector3(horizontalSpeed, -2, verticalSpeed);
 
         newMovementSpeed = transform.TransformDirection(newMovementSpeed);
 
