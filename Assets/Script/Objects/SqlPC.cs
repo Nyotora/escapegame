@@ -33,10 +33,21 @@ public class SqlPC : MonoBehaviour, IInteractable
     private string[] validOperations = new string[] { "=", "!=" };
 
     private bool success = false;
+    private bool access = false;
 
     public bool IsQueryValid()
     {
         return success;
+    }
+
+    public bool canBeAccessed()
+    {
+        return access;
+    }
+
+    public void giveAccess()
+    {
+        access = true;
     }
 
     public void Hover()
@@ -53,15 +64,18 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public void VisualInteraction(Player player)
     {
-        sqlElements.SetActive(true);
-
-        if (player.GetInventory().Contains(studentTable))
+        if (access)
         {
-            showTableBtn.SetActive(true);
-        }
+            sqlElements.SetActive(true);
 
-        playerController.disableInput();
-        Cursor.lockState = CursorLockMode.Confined;
+            if (player.GetInventory().Contains(studentTable))
+            {
+                showTableBtn.SetActive(true);
+            }
+
+            playerController.disableInput();
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     public void hideSQLquery()

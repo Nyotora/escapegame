@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Dialogue : MonoBehaviour
 {
+    public HUD hud;
+
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
@@ -47,6 +49,10 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        if (hud.isOpen)
+        {
+            hud.ChangeCompetencePanel();
+        }
         playerController.disableInput();
         gameObject.SetActive(true);
         index = 0;

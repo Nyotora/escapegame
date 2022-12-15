@@ -28,7 +28,7 @@ public class Professor : MonoBehaviour, IInteractable
         //throw new System.NotImplementedException();
     }
 
-    public void Interact(Player player)
+    virtual public void Interact(Player player)
     {
         dialogueBox.textComponent.text = string.Empty;
         dialogueBox.lines = textLines;
