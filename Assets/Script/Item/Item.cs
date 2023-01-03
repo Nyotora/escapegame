@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
     protected string name;
     protected string description;
+    public Sprite img;
+    public ItemBox box;
 
     public Item(string name, string description)
     {
@@ -23,5 +26,10 @@ public class Item : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ShowItemBox()
+    {
+        box.Show(name, description, img);
     }
 }

@@ -18,16 +18,16 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangeCompetencePanel();
+        //ChangeCompetencePanel();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.cKey.wasPressedThisFrame)
-        {
-            ChangeCompetencePanel();
-        }
+        //if (Keyboard.current.cKey.wasPressedThisFrame)
+        //{
+            //ChangeCompetencePanel();
+        //}
     }
 
     public void ChangeCompetencePanel()

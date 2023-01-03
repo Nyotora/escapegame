@@ -8,6 +8,7 @@ public class FirstCinematic : MonoBehaviour
 {
     public Image blackScreen;
     public Player player;
+    public GameObject player_bone;
     public scr_CharacterController playerController;
     //public GameObject camera;
     public VideoPlayer video;
@@ -20,7 +21,7 @@ public class FirstCinematic : MonoBehaviour
 
     private int nextIndex;
 
-
+    private Animation anim;
     public bool IsRunning()
     {
         return isRunning;
@@ -35,7 +36,7 @@ public class FirstCinematic : MonoBehaviour
         dialogueBox.setCinematic(this);
 
         playerController.disableInput();
-        playerController.disableCalculating();
+        //playerController.disableCalculating();
 
         StartCoroutine(FadeImage());
     }
@@ -47,7 +48,7 @@ public class FirstCinematic : MonoBehaviour
 
     IEnumerator FadeImage()
     {
-        yield return new WaitForSeconds(28);
+        //yield return new WaitForSeconds(28);
         blackScreen.gameObject.SetActive(true);
         video.gameObject.SetActive(false);
 
@@ -70,13 +71,10 @@ public class FirstCinematic : MonoBehaviour
         //videoPlayer.Play();
 
         // loop over 1 second backwards
-        for (float i = 2; i >= 1; i -= Time.deltaTime * 2)
-        {
-            // set color with i as alpha
-            playerController.transform.rotation = Quaternion.Euler(new Vector3(0, i * 45, 0));
-            yield return null;
-        }
-        //yield return new WaitForSeconds(1);
+        anim = player_bone.GetComponent<Animation>();
+        anim.Play("cam_cine1");
+        yield return new WaitForSeconds(1);
+
         dialogueBox.textComponent.text = string.Empty;
         dialogueBox.lines = new string[] { "...", "Où suis-je ?" };
         dialogueBox.StartDialogue();
@@ -104,22 +102,12 @@ public class FirstCinematic : MonoBehaviour
 
     IEnumerator MoveCameraAround2()
     {
-        
-        // loop over 1 second backwards
-        for (float i = 1; i <= 3; i += Time.deltaTime * 8)
-        {
-            // set color with i as alpha
-            playerController.transform.rotation = Quaternion.Euler(new Vector3(0, i * 45, 0));
-            yield return null;
-        }
 
         // loop over 1 second backwards
-        for (float i = 3; i <= 4; i += Time.deltaTime * 4)
-        {
-            // set color with i as alpha
-            playerController.transform.rotation = Quaternion.Euler(new Vector3(0, i * 45, 0));
-            yield return null;
-        }
+        anim = player_bone.GetComponent<Animation>();
+        anim.Play("cam_cine2");
+        yield return new WaitForSeconds(1);
+
         dialogueBox.lines = new string[] { "C'est le batiment informatique non ?", "J'étais en cours et d'un coup je me suis endormi..." };
         dialogueBox.StartDialogue();
         nextIndex++;
@@ -130,12 +118,10 @@ public class FirstCinematic : MonoBehaviour
     {
         profPugel.gameObject.SetActive(true);
         // loop over 1 second backwards
-        for (float i = 4; i >= 2; i -= Time.deltaTime * 4)
-        {
-            // set color with i as alpha
-            playerController.transform.rotation = Quaternion.Euler(new Vector3(0, i * 45, 0));
-            yield return null;
-        }
+        anim = player_bone.GetComponent<Animation>();
+        anim.Play("cam_cine3");
+        yield return new WaitForSeconds(1.3f);
+
         isRunning = false;
         dialogueBox.lines = new string[] { "Je vois que tu t'es endormi durant mon cours...", 
             "C'est pas très serieux ça.",
@@ -147,7 +133,6 @@ public class FirstCinematic : MonoBehaviour
             "Va dans le batiment informatique situé à ta droite.",
             "Tu trouveras différents professeurs qui te confieront plusieurs missions."
         };
-        yield return new WaitForSeconds(1);
         dialogueBox.StartDialogue();
     }
 }
