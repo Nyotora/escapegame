@@ -78,7 +78,7 @@ public class DoorCloseCinematic : MonoBehaviour
         yield return new WaitForSeconds(1.7f);
 
         dialogueBox.textComponent.text = string.Empty;
-        dialogueBox.lines = new string[] { "Ah...", "C'est fermé" };
+        dialogueBox.lines = new string[] { "(...)", "(Hein ?)", "(Attends attends !!)", "(C'est quoi ce bordel ?!)", "(Je rêve ou quoi ?)", "(Il faut que je sorte de là !)" };
         dialogueBox.StartDialogue();
 
         anim = player_bone.GetComponent<Animation>();

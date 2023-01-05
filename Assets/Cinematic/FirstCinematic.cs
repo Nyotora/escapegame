@@ -76,7 +76,7 @@ public class FirstCinematic : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         dialogueBox.textComponent.text = string.Empty;
-        dialogueBox.lines = new string[] { "...", "Où suis-je ?" };
+        dialogueBox.lines = new string[] { "(...)", "(Où suis-je ?)" };
         dialogueBox.StartDialogue();
         nextIndex++;
         //StartCoroutine(MoveCameraAround2());
@@ -108,7 +108,7 @@ public class FirstCinematic : MonoBehaviour
         anim.Play("cam_cine2");
         yield return new WaitForSeconds(1);
 
-        dialogueBox.lines = new string[] { "C'est le batiment informatique non ?", "J'étais en cours et d'un coup je me suis endormi..." };
+        dialogueBox.lines = new string[] { "(C'est le batiment informatique non ?)", "(J'étais en cours et d'un coup je me suis endormi...)", "(Il y a de la brûme de partout...)" };
         dialogueBox.StartDialogue();
         nextIndex++;
         //StartCoroutine(MoveCameraAround3());
