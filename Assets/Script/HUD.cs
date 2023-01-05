@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class HUD : MonoBehaviour
 {
     public Player player;
+    public Interactor interactor;
 
     [Header("Competence panel")]
     public Image competenceBox;
@@ -14,6 +16,10 @@ public class HUD : MonoBehaviour
     public Image competenceArrow;
     public Text[] competencesText;
     public bool isOpen;
+
+    [Header("Interaction panel")]
+    public Canvas interactionCanvas;
+    public TextMeshProUGUI interactionText;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +34,15 @@ public class HUD : MonoBehaviour
         //{
             //ChangeCompetencePanel();
         //}
+
+        if (interactor.getNumFound() > 0)
+        {
+            interactionCanvas.gameObject.SetActive(true);
+            interactionText.text = interactor.getInteractableObject().InteractionPrompt;
+        } else
+        {
+            interactionCanvas.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeCompetencePanel()
