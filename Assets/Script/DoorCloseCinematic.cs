@@ -8,8 +8,10 @@ public class DoorCloseCinematic : MonoBehaviour
     private bool finished;
     public GameObject doubleDoor;
     public Player player;
+    public GameObject player_bone;
     public scr_CharacterController playerController;
     public Dialogue dialogueBox;
+    public GameObject keyLock;
 
 
     private Animation anim;
@@ -60,14 +62,27 @@ public class DoorCloseCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        anim = doubleDoor.GetComponent<Animation>();
-        anim.Play("doubleDoorClose");
+        anim = player_bone.GetComponent<Animation>();
+        anim.Play("180");
 
         yield return new WaitForSeconds(1);
 
+        anim = doubleDoor.GetComponent<Animation>();
+        anim.Play("doubleDoorClose");
+
+        yield return new WaitForSeconds(0.7f);
+
+        anim = keyLock.GetComponent<Animation>();
+        anim.Play("KeyLockSpawn");
+
+        yield return new WaitForSeconds(1.7f);
+
         dialogueBox.textComponent.text = string.Empty;
-        dialogueBox.lines = new string[] { "Ah...", "C'est fermé" };
+        dialogueBox.lines = new string[] { "(...)", "(Hein ?)", "(Attends attends !!)", "(C'est quoi ce bordel ?!)", "(Je rêve ou quoi ?)", "(Il faut que je sorte de là !)" };
         dialogueBox.StartDialogue();
+
+        anim = player_bone.GetComponent<Animation>();
+        anim.Play("r180");
         //StartCoroutine(MoveCameraAround2());
     }
 }

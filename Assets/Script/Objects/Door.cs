@@ -67,10 +67,12 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (isOpen)
         {
+            _prompt = "E : Fermer";
             anim.Play("doorOpen");
         }
         else
         {
+            _prompt = "E : Ouvrir";
             anim.Play("doorClose"); 
         }
     }

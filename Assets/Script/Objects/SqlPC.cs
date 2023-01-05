@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,21 +33,53 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public scr_CharacterController playerController;
 
+    [Header("Loggin Canvas")]
+    public Canvas LoginScreenCanvas;
+    public TMP_InputField passwordInput;
+    public Image hint;
+
+
     private string[] validColumn = new string[] {"id_etudiant","nom","prenom","moyenne"};
     private string[] validOperations = new string[] { "=", "!=" };
 
     private bool success = false;
     private bool access = false;
+    private bool logged = false;
+
+    private Player player;
+
+    public bool canBeAccessed()
+    {
+        return access;
+    }
+
+    public void checkPassword()
+    {
+        if (passwordInput.text == "iloveSQL87")
+        {
+            logged = true;
+            LoginScreenCanvas.gameObject.SetActive(false);
+            VisualInteraction(player);
+        } else
+        {
+            passwordInput.text = "";
+            passwordInput.placeholder.GetComponent<TextMeshProUGUI>().text = "Mot de passe incorrect";
+        }
+    }
+
+    public void forgetPassword()
+    {
+        hint.gameObject.SetActive(true);
+    }
+
+    //------------------------------------------------------------------------------------------------------------
+
 
     public bool IsQueryValid()
     {
         return success;
     }
 
-    public bool canBeAccessed()
-    {
-        return access;
-    }
 
     public void giveAccess()
     {
@@ -59,6 +92,7 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
+        this.player = player;
     }
 
     public void Unhover()
@@ -69,13 +103,18 @@ public class SqlPC : MonoBehaviour, IInteractable
     {
         if (access)
         {
-            sqlElements.SetActive(true);
-
-            if (player.GetInventory().Contains(studentTable))
+            if (logged)
             {
-                showTableBtn.SetActive(true);
-            }
+                sqlElements.SetActive(true);
 
+                if (player.GetInventory().Contains(studentTable))
+                {
+                    showTableBtn.SetActive(true);
+                }
+            } else
+            {
+                LoginScreenCanvas.gameObject.SetActive(true);
+            }
             playerController.disableInput();
             Cursor.lockState = CursorLockMode.Confined;
         }
@@ -83,7 +122,9 @@ public class SqlPC : MonoBehaviour, IInteractable
 
     public void hideSQLquery()
     {
+        hint.gameObject.SetActive(false);
         sqlElements.SetActive(false);
+        LoginScreenCanvas.gameObject.SetActive(false);
 
         playerController.enableInput();
         Cursor.lockState = CursorLockMode.Locked;
@@ -181,7 +222,7 @@ public class SqlPC : MonoBehaviour, IInteractable
         else if (!float.TryParse(textInputs[7].text, out _) && textInputs[5].text == "moyenne")
         {
             ShowError("ERREUR LORS DE L'EXECUTION SQL :\nErreur syntaxe : MatchTypeException(0)\n\nErreur ligne 3 : '"
-                + textInputs[7].text + "' n'est pas un entier est ne correspond pas avec la colonne 'moyenne'");
+                + textInputs[7].text + "' n'est pas un entier et ne correspond pas avec la colonne 'moyenne'");
 
         }
         // Fin des erreurs de syntaxes : début des erreurs de resultats

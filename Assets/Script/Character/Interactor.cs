@@ -55,4 +55,14 @@ public class Interactor : MonoBehaviour
         //Gizmos.DrawCube(_interactionPoint.position, new Vector3(1,0.02f,0.02f));
         //Gizmos.DrawLine(_interactionPoint.position, _interactionPointEnd.position);
     }
+
+    public int getNumFound()
+    {
+        return _numFound;
+    }
+
+    public IInteractable getInteractableObject()
+    {
+        return _colliders[0].GetComponent<IInteractable>();
+    }
 }

@@ -19,6 +19,9 @@ public class StudentTable : Item, IInteractable
     // Start is called before the first frame update
     void Start()
     {
+        this.name = "Table Etudiant_G4A";
+        this.description = "Cette feuille contient les données de chaque étudiant avec leur moyenne. Elle sera consultable directement sur l'ordinateur.";
+
         startcolor = GetComponent<Renderer>().material.color;
 
     }
@@ -51,5 +54,6 @@ public class StudentTable : Item, IInteractable
     public void VisualInteraction(Player player)
     {
         Destroy(gameObject);
+        ShowItemBox();
     }
 }
