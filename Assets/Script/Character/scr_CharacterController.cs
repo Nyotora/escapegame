@@ -111,4 +111,15 @@ public class scr_CharacterController : MonoBehaviour
     {
         canCalculate = true;
     }
+
+    public bool ePressed()
+    {
+        if (defaultInput.Character.Interaction.WasPressedThisFrame())
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
 }

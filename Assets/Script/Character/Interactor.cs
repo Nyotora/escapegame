@@ -14,10 +14,18 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numFound;
     [SerializeField] private Player player;
 
+    public scr_CharacterController characterController;
+
     private IInteractable interactable;
+
+    private void Awake()
+    {
+    }
 
     private void Update()
     {
+        
+
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders,
         (int)_interactableMask);
 
@@ -25,7 +33,7 @@ public class Interactor : MonoBehaviour
         {
             interactable = _colliders[0].GetComponent<IInteractable>();
             interactable.Hover();
-            if (interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
+            if (interactable != null && characterController.ePressed())
             {
                 interactable.Interact(player);
                 interactable.VisualInteraction(player);

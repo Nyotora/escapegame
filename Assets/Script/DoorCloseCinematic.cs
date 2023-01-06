@@ -13,6 +13,8 @@ public class DoorCloseCinematic : MonoBehaviour
     public Dialogue dialogueBox;
     public GameObject keyLock;
 
+    public Camera playerCamera;
+    public Camera cinematicCamera;
 
     private Animation anim;
 
@@ -62,10 +64,15 @@ public class DoorCloseCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        anim = player_bone.GetComponent<Animation>();
-        anim.Play("180");
+        //anim = player_bone.GetComponent<Animation>();
+        //anim.Play("180");
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
+
+        cinematicCamera.gameObject.SetActive(true);
+        playerCamera.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.3f);
 
         anim = doubleDoor.GetComponent<Animation>();
         anim.Play("doubleDoorClose");
@@ -75,14 +82,17 @@ public class DoorCloseCinematic : MonoBehaviour
         anim = keyLock.GetComponent<Animation>();
         anim.Play("KeyLockSpawn");
 
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(2.3f);
+
+        playerCamera.gameObject.SetActive(true);
+        cinematicCamera.gameObject.SetActive(false);
 
         dialogueBox.textComponent.text = string.Empty;
         dialogueBox.lines = new string[] { "(...)", "(Hein ?)", "(Attends attends !!)", "(C'est quoi ce bordel ?!)", "(Je rêve ou quoi ?)", "(Il faut que je sorte de là !)" };
         dialogueBox.StartDialogue();
 
-        anim = player_bone.GetComponent<Animation>();
-        anim.Play("r180");
+        //anim = player_bone.GetComponent<Animation>();
+        //anim.Play("r180");
         //StartCoroutine(MoveCameraAround2());
     }
 }
