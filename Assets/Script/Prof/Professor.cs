@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Professor : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _prompt;
+    [SerializeField] protected string _prompt;
     public string InteractionPrompt => _prompt;
     public string[] textLines;
 

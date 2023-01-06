@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-public class FirstCinematic : MonoBehaviour
+public class FirstCinematic : Cinematic
 {
     public Image blackScreen;
     public Player player;
@@ -17,21 +17,14 @@ public class FirstCinematic : MonoBehaviour
 
     public Professor profPugel;
 
-    private bool isRunning;
 
-    private int nextIndex;
 
     private Animation anim;
-    public bool IsRunning()
-    {
-        return isRunning;
-    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        nextIndex = 0;
         isRunning = true;
         dialogueBox.setCinematic(this);
 
@@ -48,7 +41,7 @@ public class FirstCinematic : MonoBehaviour
 
     IEnumerator FadeImage()
     {
-        //yield return new WaitForSeconds(28);
+        yield return new WaitForSeconds(28);
         blackScreen.gameObject.SetActive(true);
         video.gameObject.SetActive(false);
 
@@ -83,7 +76,7 @@ public class FirstCinematic : MonoBehaviour
     }
 
 
-    public void Next()
+    public override void Next()
     {
         switch (nextIndex)
         {

@@ -15,10 +15,10 @@ public class Dialogue : MonoBehaviour
     public int index;
     public scr_CharacterController playerController;
 
-    private FirstCinematic cinematic;
+    private Cinematic cinematic;
 
 
-    public void setCinematic(FirstCinematic cinematic)
+    public void setCinematic(Cinematic cinematic)
     {
         this.cinematic = cinematic;
     }
@@ -84,7 +84,6 @@ public class Dialogue : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 playerController.enableInput();
-                playerController.enableCalculating();
             }
             else
             {

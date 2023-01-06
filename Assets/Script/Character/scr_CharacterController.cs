@@ -8,6 +8,8 @@ public class scr_CharacterController : MonoBehaviour
 {
     private CharacterController characterController;
 
+    private bool enable = true;
+
     private DefaultInput defaultInput;
     public Vector2 input_movement;
     public Vector2 input_view;
@@ -93,6 +95,7 @@ public class scr_CharacterController : MonoBehaviour
     public void enableInput()
     {
         defaultInput.Enable();
+        enable = true;
     }
 
     public void disableInput()
@@ -100,6 +103,7 @@ public class scr_CharacterController : MonoBehaviour
         defaultInput.Disable();
         input_movement = new Vector2(0, 0);
         input_view = new Vector2(0, 0);
+        enable = false;
     }
 
     public void disableCalculating()
@@ -121,5 +125,10 @@ public class scr_CharacterController : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public bool canMove()
+    {
+        return enable;
     }
 }
