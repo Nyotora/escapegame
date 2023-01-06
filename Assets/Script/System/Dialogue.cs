@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
     public HUD hud;
 
     public TextMeshProUGUI textComponent;
+    public Image spacebarIcon;
     public string[] lines;
     public float textSpeed;
 
@@ -43,6 +45,7 @@ public class Dialogue : MonoBehaviour
             {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
+                spacebarIcon.gameObject.SetActive(true);
             }
         }
     }
@@ -61,11 +64,13 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        spacebarIcon.gameObject.SetActive(false);
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        spacebarIcon.gameObject.SetActive(true);
     }
 
 
