@@ -127,6 +127,18 @@ public class scr_CharacterController : MonoBehaviour
         }
     }
 
+    public bool escPressed()
+    {
+        if (defaultInput.Character.Pause.WasPressedThisFrame())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public bool canMove()
     {
         return enable;
