@@ -12,6 +12,7 @@ public class DoorCloseCinematic : MonoBehaviour
     public scr_CharacterController playerController;
     public Dialogue dialogueBox;
     public GameObject keyLock;
+    public Canvas SixKeyLockMenuImage;
 
     public Camera playerCamera;
     public Camera cinematicCamera;
@@ -88,8 +89,9 @@ public class DoorCloseCinematic : MonoBehaviour
         cinematicCamera.gameObject.SetActive(false);
 
         dialogueBox.textComponent.text = string.Empty;
-        dialogueBox.lines = new string[] { "(...)", "(Hein ?)", "(Attends attends !!)", "(C'est quoi ce bordel ?!)", "(Je rêve ou quoi ?)", "(Il faut que je sorte de là !)" };
+        dialogueBox.lines = new string[] { "(...)", "(Hein ?)", "(Attends attends !!)", "(Qu'est-ce qui ce passe ?!)", "(Je rêve ou quoi ?)", "(Il faut que je sorte de là !)" };
         dialogueBox.StartDialogue();
+        SixKeyLockMenuImage.gameObject.SetActive(true);
 
         //anim = player_bone.GetComponent<Animation>();
         //anim.Play("r180");

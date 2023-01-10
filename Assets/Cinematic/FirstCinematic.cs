@@ -101,7 +101,7 @@ public class FirstCinematic : Cinematic
         anim.Play("cam_cine2");
         yield return new WaitForSeconds(1);
 
-        dialogueBox.lines = new string[] { "(C'est le batiment informatique non ?)", "(J'étais en cours et d'un coup je me suis endormi...)", "(Il y a de la brûme de partout...)" };
+        dialogueBox.lines = new string[] { "(C'est le bâtiment informatique non ?)", "(J'étais en cours et d'un coup je me suis endormi...)", "(Il y a de la brûme de partout...)" };
         dialogueBox.StartDialogue();
         nextIndex++;
         //StartCoroutine(MoveCameraAround3());

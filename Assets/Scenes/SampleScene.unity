@@ -10978,7 +10978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &395458257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13722,6 +13722,7 @@ MonoBehaviour:
   playerController: {fileID: 2049212246}
   dialogueBox: {fileID: 522567096}
   keyLock: {fileID: 1725378754}
+  SixKeyLockMenuImage: {fileID: 395458260}
   playerCamera: {fileID: 963194227}
   cinematicCamera: {fileID: 595636152}
 --- !u!4 &574226487
