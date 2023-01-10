@@ -17,7 +17,7 @@ public class FirstCinematic : Cinematic
 
     public Professor profPugel;
 
-
+    public Canvas commandsCanvas;
 
     private Animation anim;
 
@@ -89,6 +89,11 @@ public class FirstCinematic : Cinematic
                 StopAllCoroutines();
                 StartCoroutine(MoveCameraAround3());
                 break;
+
+            case 3:
+                StopAllCoroutines();
+                StartCoroutine(ShowInputs());
+                break;
         }
     }
 
@@ -115,7 +120,6 @@ public class FirstCinematic : Cinematic
         anim.Play("cam_cine3");
         yield return new WaitForSeconds(1.3f);
 
-        isRunning = false;
         dialogueBox.lines = new string[] { "Je vois que tu t'es endormi durant mon cours...", 
             "C'est pas très serieux ça.",
             "...",
@@ -127,5 +131,23 @@ public class FirstCinematic : Cinematic
             "Tu trouveras différents professeurs qui te confieront plusieurs missions."
         };
         dialogueBox.StartDialogue();
+        nextIndex++;
     }
+
+    IEnumerator ShowInputs()
+    {
+        yield return new WaitForSeconds(0.4f);
+        commandsCanvas.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        isRunning = false;
+        StopAllCoroutines();
+    }
+
+    public void hideAndStart()
+    {
+        commandsCanvas.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        playerController.enableInput();
+    }
+
 }
