@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class DoorCloseCinematic : MonoBehaviour
+public class DoorCloseCinematic : Cinematic
 {
     private bool finished;
     public GameObject doubleDoor;
@@ -17,11 +17,14 @@ public class DoorCloseCinematic : MonoBehaviour
     public Camera playerCamera;
     public Camera cinematicCamera;
 
+    public Canvas gameSummary;
+
     private Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        isRunning = true;
         finished = false;
     }
 
@@ -31,6 +34,17 @@ public class DoorCloseCinematic : MonoBehaviour
         if (!finished)
         {
             Collision();
+        }
+    }
+
+    public override void Next()
+    {
+        switch (nextIndex)
+        {
+            case 1:
+                StopAllCoroutines();
+                StartCoroutine(ShowGameSummary());
+                break;
         }
     }
 
@@ -88,13 +102,32 @@ public class DoorCloseCinematic : MonoBehaviour
         playerCamera.gameObject.SetActive(true);
         cinematicCamera.gameObject.SetActive(false);
 
+        dialogueBox.setCinematic(this);
+
         dialogueBox.textComponent.text = string.Empty;
         dialogueBox.lines = new string[] { "(...)", "(Hein ?)", "(Attends attends !!)", "(Qu'est-ce qui ce passe ?!)", "(Je rêve ou quoi ?)", "(Il faut que je sorte de là !)" };
         dialogueBox.StartDialogue();
         SixKeyLockMenuImage.gameObject.SetActive(true);
+        nextIndex++;
 
         //anim = player_bone.GetComponent<Animation>();
         //anim.Play("r180");
         //StartCoroutine(MoveCameraAround2());
+    }
+
+    IEnumerator ShowGameSummary()
+    {
+        yield return new WaitForSeconds(0.4f);
+        gameSummary.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        isRunning = false;
+        StopAllCoroutines();
+    }
+
+    public void hideAndFinish()
+    {
+        gameSummary.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        playerController.enableInput();
     }
 }
