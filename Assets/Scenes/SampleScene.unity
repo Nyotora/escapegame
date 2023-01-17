@@ -14423,7 +14423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &585827495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32019,7 +32019,7 @@ GameObject:
   - component: {fileID: 1153885208}
   - component: {fileID: 1153885212}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38388,7 +38388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1593728993
 RectTransform:
   m_ObjectHideFlags: 0

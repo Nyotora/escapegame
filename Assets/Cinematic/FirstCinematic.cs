@@ -41,7 +41,7 @@ public class FirstCinematic : Cinematic
 
     IEnumerator FadeImage()
     {
-        yield return new WaitForSeconds(28);
+        //yield return new WaitForSeconds(28);
         blackScreen.gameObject.SetActive(true);
         video.gameObject.SetActive(false);
 
