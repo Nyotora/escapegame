@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Reflection;
+using UnityEngine.Windows;
 
 public class SqlManager
 {
@@ -35,8 +36,15 @@ public class SqlManager
         return succes;
     }
 
-    public string checkForError(string[] inputs)
+    public string checkForError(string[] textInputs)
     {
+        string[] inputs = new string[textInputs.Length];
+
+        for (int i = 0; i < inputs.Length; i++)
+        {
+            inputs[i] = removeSpace(textInputs[i]);
+        }
+
         error = true;
         if (inputs[0].ToUpper() != "SELECT")
         {
@@ -72,6 +80,12 @@ public class SqlManager
         {
             return ERROR_TXT + UNKNOWN_COLUMN_EXCEPTION_TXT + "Erreur ligne 3 : '"
                 + inputs[5] + "' n'est pas une colonne de la table ETUDIANT_G4A.";
+
+        }
+        else if (inputs[7] == "")
+        {
+            return ERROR_TXT + MATCH_TYPE_EXCEPTION_TXT + "Erreur ligne 3 : '"
+                + "La condition est incomplète. Il manque la fin.";
 
         }
         else if (!int.TryParse(inputs[7], out _) && inputs[5] == "id_etudiant")
