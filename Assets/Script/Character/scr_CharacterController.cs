@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static PlayerSettings;
 
 public class scr_CharacterController : MonoBehaviour
@@ -45,6 +46,12 @@ public class scr_CharacterController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
+    }
+
+    public void UpdateSensibility(Scrollbar scrollbar)
+    {
+        playerSettings.ViewXSensitivity = 10 * (scrollbar.value + 0.05f) * 2;
+        playerSettings.ViewYSensitivity = 10 * (scrollbar.value + 0.05f) * 2;
     }
 
     private void Update()
