@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    public HUD hud;
+    public Canvas hud;
 
     public TextMeshProUGUI textComponent;
     public Image spacebarIcon;
@@ -52,10 +52,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
-        if (hud.isOpen)
-        {
-            hud.ChangeCompetencePanel();
-        }
+        hud.gameObject.SetActive(false);
         playerController.disableInput();
         gameObject.SetActive(true);
         index = 0;
@@ -87,6 +84,7 @@ public class Dialogue : MonoBehaviour
 
             if (!cinematic.IsRunning())
             {
+                hud.gameObject.SetActive(true);
                 gameObject.SetActive(false);
                 playerController.enableInput();
             }
@@ -98,6 +96,12 @@ public class Dialogue : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ShowHud()
+    {
+
+        hud.gameObject.SetActive(true);
     }
 
 }

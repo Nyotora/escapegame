@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -83,7 +84,8 @@ public class SQLkeyCinematic : Cinematic
         blackScreen.gameObject.SetActive(false);
         credits.gameObject.SetActive(true);
         credits.Play();
-        yield return new WaitForSeconds(17);
-        Application.Quit();
+        yield return new WaitForSeconds(27);
+        Cursor.lockState = CursorLockMode.Confined;
+        SceneManager.LoadScene("MainTitle");
     }
 }

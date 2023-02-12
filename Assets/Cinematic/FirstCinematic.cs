@@ -41,7 +41,7 @@ public class FirstCinematic : Cinematic
 
     IEnumerator FadeImage()
     {
-        //yield return new WaitForSeconds(28);
+        yield return new WaitForSeconds(28);
         blackScreen.gameObject.SetActive(true);
         video.gameObject.SetActive(false);
 
@@ -69,7 +69,7 @@ public class FirstCinematic : Cinematic
         yield return new WaitForSeconds(1);
 
         dialogueBox.textComponent.text = string.Empty;
-        dialogueBox.lines = new string[] { "(...)", "(Où suis-je ?)" };
+        dialogueBox.lines = new string[] { "...", "(Où suis-je ?)" };
         dialogueBox.StartDialogue();
         nextIndex++;
         //StartCoroutine(MoveCameraAround2());
@@ -127,7 +127,7 @@ public class FirstCinematic : Cinematic
             "Les autres professeurs m'ont rapporté que tu as l'air de t'ennuyer durant leur cours.",
             "Tu risques de rater ton année si ça continue comme ça.",
             "Pour la peine tu vas aller réviser tes cours tout de suite.",
-            "Va dans le batiment informatique situé à ta droite.",
+            "Vas dans le bâtiment informatique situé sur ta droite.",
             "Tu trouveras différents professeurs qui te confieront plusieurs missions."
         };
         dialogueBox.StartDialogue();
@@ -146,6 +146,7 @@ public class FirstCinematic : Cinematic
     public void hideAndStart()
     {
         commandsCanvas.gameObject.SetActive(false);
+        dialogueBox.ShowHud();
         Cursor.lockState = CursorLockMode.Locked;
         playerController.enableInput();
     }

@@ -38,7 +38,7 @@ public class SQLprofessor : Professor
             else if (pc.canBeAccessed())
             {
                 textLines = new string[] { "Tu veux que je répète ? Alors écoute.",
-                    "Je dois afficher les notes des élèves mais j’ai renversé du café sur la feuille, peux-tu retrouver la note de l’élève Lamarche Mathieu dans la base de donnée de l’IUT ?",
+                    "Je dois afficher les moyennes des élèves mais j’ai renversé du café sur la feuille, peux-tu retrouver la moyenne de l’élève Lamarche Mathieu dans la base de donnée de l’IUT ?",
                 "Pour cela, tu peux utiliser mon ordinateur que j'ai laissé dans la salle R50.",
                 "Tu pourras y rentrer ce qu'on appelle une requête SQL. Tu peux trouver de l'aide directement sur le PC.",
                 "Il y a une fiche contenant les détails des données existantes, comme le nom des différents champs ou encore les détails des étudiants.",

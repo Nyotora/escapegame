@@ -127,6 +127,7 @@ public class DoorCloseCinematic : Cinematic
     public void hideAndFinish()
     {
         gameSummary.gameObject.SetActive(false);
+        dialogueBox.ShowHud();
         Cursor.lockState = CursorLockMode.Locked;
         playerController.enableInput();
     }
