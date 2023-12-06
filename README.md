@@ -1,92 +1,36 @@
-# escapegame
+# Escape game
 
-SAé 3
+## Présentation de la SAÉ
+Le département Informatique souhaiterait proposer pour les prochaines JPO de 2023 une application sur le principe d’un escape game. Cet escape game permettra de faire découvrir le BUT informatique aux futurs élèves en études supérieures afin de les aider à faire leur choix d’orientation.
 
-## Getting started
+Cette SAE demandera une part de créativité pour imaginer un escape game permettant aux visiteurs de parcourir tout le département Informatique en répondant à des énigmes numériques basées sur des ressources enseignées durant le BUT Informatique (algo, programmation, BD, etc ) et de la rigueur car un code de qualité est attendu.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Notre interprétation du sujet
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Après une concertation générale, nous nous sommes mis d’accord sur le type d’application que nous voulions faire : un jeu vidéo. En effet, à la lecture du sujet, c’est le côté ludique de l’escape game qui nous a paru le plus attractif et le plus pertinent. Nous allons donc réaliser un jeu vidéo dans le cadre de cette SAÉ. 
 
-## Add your files
+Dans celui-ci, nous incarnerons un étudiant fatigué qui s’endort durant un cours et qui rêve qu’il est bloqué dans l’iut. Il pourra se réveiller lorsqu’il s'échappera du bâtiment, en trouvant des clés et en montant dans les étages en résolvant des énigmes qui auront pour thème les cours du BUT informatique. Celui-ci devra valider les 6 compétences phares de la formation, ce qui représente une métaphore de la réussite de son année.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Le jeu sera en 3D et à la première personne, ce qui veut dire que nous verrons le jeu à travers les yeux du personnage que nous contrôlons, pour renforcer l’immersion et éviter des problèmes de gestion de caméra dans des espaces clos (à la 3ème personne, la caméra peut se retrouver dans les murs du bâtiment …). Un de nos objectif est aussi de pouvoir distribuer le jeu même en dehors de l’iut, si quelqu’un ne peut pas venir aux journées portes ouvertes il pourra alors quand même profiter du jeu et découvrir la formation depuis chez lui.
 
-```
-cd existing_repo
-git remote add origin http://git.unilim.fr/denise1/escapegame.git
-git branch -M main
-git push -uf origin main
-```
+## Les énigmes
 
-## Integrate with your tools
+Le principal intérêt intellectuel de cette application sera les énigmes, que nous essaierons de rendre ludiques et intéressantes. Afin de bien retranscrire ce que nous faisons dans cette formation, les 6 énigmes auxquelles le joueur sera confronté représenteront chacunes une des 6 compétences du BUT informatique : 
 
-- [ ] [Set up project integrations](http://git.unilim.fr/denise1/escapegame/-/settings/integrations)
+Réaliser un développement d’application : Réaliser un petit programme python de manière interactif.
 
-## Collaborate with your team
+Gérer des données de l’information : Le joueur devra construire une requête SQL pour retrouver la moyenne d’un étudiant particulier dans une table contenant des étudiants avec leur moyenne.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Optimiser des applications : le joueur va trouver un “spray anti-smell code" et devra vaporiser 10 smell code au 1er étage .
 
-## Test and Deploy
+Administrer des systèmes de l’informatique communicants complexes : relier 2 PC dans des sous réseaux différents grâce aux lunettes Kathara (des lunettes qui nous permettent de voir les routes réseaux) les 2 PC sont dans les salles 104 et 105.
 
-Use the built-in continuous integration in GitLab.
+Conduire un projet : Le joueur aura plusieurs objectifs fictifs (exemple : “je vais devenir le roi des pirates”) devant lui et devra dire lesquels sont “SMART”.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Collaborer au sein d'une équipe informatique : On devra relier des personas et des solutions logicielles/fonctionnalités qui correspondent à leurs besoins.
 
-***
+Ce sont les professeurs qui nous donneront les énigmes, qui seront des personnages non-joueurs. Ils pourront également donner des indices si le joueur est bloqué sur une énigme.
 
-# Editing this README
+> [!NOTE]
+> Nous n'avions pu faire qu'une démo contenant l'énigme 4 : Gérer des données de l’information.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
